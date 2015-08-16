@@ -100,3 +100,24 @@ $(#contact-box).append(dogeTaco);
 
 [`append()` documentation](http://api.jquery.com/append/)
 
+## Event Handling
+jQuery makes event handling super easy. We can attach a listener to any jQuery object and then execute some action when the event takes place.
+
+### Click Listening
+Execute an anonymous function when an object is clicked:
+
+```
+$("#doge-taco").click(function(){
+  $("h2").addClass("blue");
+});
+```
+
+[`click()` documentation](http://api.jquery.com/click/)
+
+Using `this`:
+
+```
+$("#doge-taco").click(function(){
+  $(this).hide();
+});
+```
