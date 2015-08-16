@@ -11,7 +11,7 @@ jQuery is particularly useful for manipulating the DOM and providing smooth user
 You can download jQuery from The jQuery Foundation's [website](http://jquery.com/download/). You can also use the [Google Hosted Libraries](https://developers.google.com/speed/libraries/?hl=en). The advantage of the former is that you are able to ensure the library is available. The disadvantage is that you are responsible for maintaining and updating that library in your codebase. The advantage of the latter is ease of use.
 
 ## `$(document).ready();`
-Loading your JavaScript at the bottom of the page will help you avoid trying to do stuff to elements that aren't yet loaded onto the page, but `$(document).ready();` is an insurance policy against this problem. You should only use one `$(document).ready();` in your js file, when called more than once, things will break.
+Loading your JavaScript at the bottom of the page will help you avoid trying to do stuff to elements that aren't yet loaded onto the page, but `$(document).ready();` is an insurance policy against this problem. You should only use one `$(document).ready();` in your js file. When called more than once, things will break.
 
 ```
 function someFunction(){
@@ -37,7 +37,7 @@ but more commonly you will see people get elements with jQuery like this:
 
 *Pro Tip*: The latter is the most common and is what I will use for all the examples in this clinic. However, be aware that occassionally you may use another library that also uses the `$` namespace and therefore run into conflicts, at which point you should refer to the jQuery [documentation on this topic](http://learn.jquery.com/using-jquery-core/avoid-conflicts-other-libraries/). It's highly unlikely you will need to handle this while you are working on your projects here, but I wanted to expose you to the concept.
 
-jQuery lets you grab elements from the page using their CSS selectors, which makes it easy to use the Web Dev tools to find the best way to grab what you want.
+jQuery lets you grab elements from the page using their CSS selectors (or elements), which makes it easy to use the Web Dev tools to find the best way to grab what you want.
 
 ### Getting an element by ID
 
@@ -59,6 +59,8 @@ Selecting all of the `h2` tags on a page:
 You can combine these techniques to get specific with what you grab. For example, selecting all links in list items of a certain unordered list class might look like this:
 
 `$("ul.a-taco-list")`
+
+Note that HTML elements do not have any prefix to denote their selection (i.e. no `.` or `#`). It works just like your selectors in CSS.
 
 ### Assigning a jQuery object to a variable
 
