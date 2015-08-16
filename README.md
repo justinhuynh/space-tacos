@@ -76,11 +76,18 @@ To figure out what you can do once you grab the item or items you want from the 
 
 [`hide()` documentation](http://api.jquery.com/hide/)
 
-### Changing the styling of an element
+### Changing the styling of element(s)
 
 `$("h2").css("color", "red");`
 
 [`css()` documentation](http://api.jquery.com/css/)
+
+or maybe:
+```
+$("h2").addClass("blue");
+```
+
+[`addClass()` documentation](http://api.jquery.com/addclass/)
 
 ### Remove an element and then append it somewhere else
 
