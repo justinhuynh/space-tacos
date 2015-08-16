@@ -14,52 +14,57 @@
   <body>
      <div class="row">
         <div class="large-12 columns">
-          <h1 class="text-center">Tacos in Space</h1>
+          <h1 class="text-center">TACOS IN SPACE</h1>
         </div>      
       </div>
      
       <div class="row">
         <div class="large-12 columns">
-        <div id="slider" class="green-layer">
+        <div id="slider">
           <img id="doge-taco" src="/img/spacetacodoge.jpg"/>
         </div>
         
         <hr/>
         </div>
       </div>
-      
-     
      
       <div class="row">
-        <div class="large-4 columns" id="tacos">
+        <div class="large-4 columns feature" id="tacos">
           <img src="/img/tacos.jpg"/>
-          <h4>Nom nom nom</h4>
+          <h2>Nom nom nom</h2>
           <p>Our tacos are out of this world!</p>
+          <ul class="a-taco-list">
+            <li>Some characteristic of a great taco</li>
+            <li>Yet another</li>
+            <li>Some other marketing stuffffff</li>
+          </ul>
         </div>
         
-        <div class="large-4 columns" id="margaritas">
+        <div class="large-4 columns feature" id="margaritas">
           <img src="/img/margarita.jpg"/>
-          <h4>TEQUILAAAA</h4>
+          <h2>TEQUILAAAA</h2>
           <p>Margaritaville goes universal.</p>
+          <ul>
+            <li>An item in a random list without a class</li>
+            <li>Something profound</li>
+          </ul>
         </div>
         
-        <div class="large-4 columns" id="outdoor">
+        <div class="large-4 columns feature" id="outdoor">
           <img src="/img/astro.jpg"/>
-          <h4>Patio Party</h4>
+          <h2>Patio Party</h2>
           <p>Chilling on the porch has a whole new look.</p>
         </div>
       
         </div>
-        
      
     <div class="row">
         <div class="large-12 columns">
         
-          <div class="panel">
-            <h4>Say hi!</h4>
-                
+          <div class="panel" id="contact-box">
+            <h2>Say hi!</h2>
             <div class="row">
-              <div class="large-9 columns">
+              <div class="large-9 columns" >
                 <p>We'd love to hear from you, you attractive person you.</p>
               </div>
               <div class="large-3 columns">
@@ -82,11 +87,12 @@
         </div> 
       </footer>
 
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>    
-      <script src="js/foundation.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>    
+    <script src="js/foundation.min.js"></script>
     <script>
       $(document).foundation();
     </script>
+
     <script src="/js/taco.js"></script>
   </body>
 </html>

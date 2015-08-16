@@ -1,13 +1,17 @@
 console.log('Hey, this is the console');
 
-//
 
-// Get the doge taco and hide it.
-// In JavaScript, you would need to do:
-// document.getElementById('doge-taco').style.display = "none";
-// In jQuery, you can:
-// $('#doge-taco').hide();
-// $('')
+function someFunction(){
+  //do a thing;
+};
 
-var doge = jQuery('#doge-taco');
-console.log(doge);
+function someOtherFunction(){
+  //do some other thing;
+};
+
+$(document).ready(function(){
+  //someFunction();
+  //someOtherFunction();
+});
+
+
