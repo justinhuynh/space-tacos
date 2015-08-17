@@ -133,7 +133,7 @@ $("#copyright").mouseover(function(){
 });
 ```
 
-## A word about raw DOM elements versus jQuery objects
+## PRO TIP ALERT: A word about raw DOM elements versus jQuery objects
 From the jQuery FAQ:
 
 > A jQuery object is an array-like wrapper around one or more DOM elements. To get a reference to the actual DOM elements (instead of the jQuery object), you have two options. The first (and fastest) method is to use array notation:
@@ -155,5 +155,11 @@ If you have a DOM element and need to use a jQuery method on it, you can assign 
 var foo = document.getElementById(someId);
 $(foo);
 ```
+You'll know if you're confusing these two concepts if you get errors like these at any point in your console:
 
+```
+"event.target.closest is not a function"'
+or
+"TypeError: Object [object Object] has no method 'setAttribute'"
+```
 
