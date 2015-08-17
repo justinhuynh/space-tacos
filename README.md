@@ -147,4 +147,13 @@ From the jQuery FAQ:
 > ```
 > You can also call `.get()` without any arguments to retrieve a true array of DOM elements.
 
+When you use `$(".get-some-elements-by-class")`, what you get back is a jQuery object, which has methods that can be called on it. It's like a wrapper around the *actual* DOM element. If you need to get the latter so that you can call native DOM methods on it, you must first use one of the two techniques above. On the same token, you cannot use jQuery methods on a native DOM object.
+
+If you have a DOM element and need to use a jQuery method on it, you can assign it to a variable and wrap it like so:
+
+```
+var foo = document.getElementById(someId);
+$(foo);
+```
+
 
