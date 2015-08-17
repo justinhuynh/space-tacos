@@ -116,10 +116,20 @@ $("#doge-taco").click(function(){
 
 [`click()` documentation](http://api.jquery.com/click/)
 
-Using `this`:
+Or use `this` to perform some action on the object that was clicked:
 
 ```
 $("#doge-taco").click(function(){
   $(this).hide();
 });
 ```
+
+### Mouseover
+Execute an anonymous function when the mouse is hovering over an element:
+
+```
+$("#copyright").mouseover(function(){
+  $(this).append("<img src=\"/images/tacopony_logo.tiff\"/>");
+})
+```
+
