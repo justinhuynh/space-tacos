@@ -1,4 +1,4 @@
-console.log('Hey, this is the console');
+// console.log('Hey, this is the console');
 
 function someFunction(){
   //do a thing;
