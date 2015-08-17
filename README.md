@@ -177,7 +177,9 @@ You'll know if you're confusing these two concepts if you get errors like these 
 
 ```
 "event.target.closest is not a function"'
+```
 or
+```
 "TypeError: Object [object Object] has no method 'setAttribute'"
 ```
 
