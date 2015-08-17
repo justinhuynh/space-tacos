@@ -129,7 +129,7 @@ Execute an anonymous function when the mouse is hovering over an element:
 
 ```
 $("#copyright").mouseover(function(){
-  $(this).append("<img src=\"/images/tacopony_logo.tiff\"/>");
-})
+  $(this).append("<img src=\"/img/tacopony_logo.jpg\"/>");
+});
 ```
 
