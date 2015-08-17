@@ -100,7 +100,7 @@ To figure out what you can do once you grab the item or items you want from the 
 
 or maybe:
 ```
-$("h2").addClass("blue");
+$("p").addClass("blue");
 ```
 
 [`addClass()` documentation](http://api.jquery.com/addclass/)
@@ -109,7 +109,7 @@ $("h2").addClass("blue");
 
 ```
 var dogeTaco = $("#doge-taco").remove();
-$(#contact-box).append(dogeTaco);
+$("#contact-box").append(dogeTaco);
 ```
 
 [`remove()` documentation](http://api.jquery.com/remove/)
