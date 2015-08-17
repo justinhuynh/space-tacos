@@ -80,6 +80,18 @@ To figure out what you can do once you grab the item or items you want from the 
 
 [`hide()` documentation](http://api.jquery.com/hide/)
 
+### Showing an element
+
+`$("#doge-taco").show();`
+
+[`show()` documentation](http://api.jquery.com/show/)
+
+### GET FANCY! FADE OUT!
+
+`$("#doge-taco").fadeOut();`
+
+[`fadeOut()` documentation](http://api.jquery.com/fadeOut/)
+
 ### Changing the styling of element(s)
 
 `$("h2").css("color", "red");`
@@ -105,6 +117,8 @@ $(#contact-box).append(dogeTaco);
 [`append()` documentation](http://api.jquery.com/append/)
 
 ## Event Handling
+Event handling is a process where we use JavaScript to "listen" for some interaction with an element, and then usually execute some corresponding action when that interaction takes place.
+
 jQuery makes event handling super easy. We can attach a listener to any jQuery object and then execute some action when the event takes place.
 
 ### Click Listening
@@ -134,6 +148,8 @@ $("#copyright").mouseover(function(){
   $(this).append("<img src=\"/img/tacopony_logo.jpg\"/>");
 });
 ```
+
+In addition to mouse events, jQuery also supports keyboard events. As you can probably imagine, this can make form validation without a page reload super smooth.
 
 ## PRO TIP ALERT: A word about raw DOM elements versus jQuery objects
 From the jQuery FAQ:
