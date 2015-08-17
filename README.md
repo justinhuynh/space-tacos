@@ -11,7 +11,9 @@ jQuery is particularly useful for manipulating the DOM and providing smooth user
 You can download jQuery from The jQuery Foundation's [website](http://jquery.com/download/). You can also use the [Google Hosted Libraries](https://developers.google.com/speed/libraries/?hl=en). The advantage of the former is that you are able to ensure the library is available. The disadvantage is that you are responsible for maintaining and updating that library in your codebase. The advantage of the latter is ease of use.
 
 ## `$(document).ready();`
-Loading your JavaScript at the bottom of the page will help you avoid trying to do stuff to elements that aren't yet loaded onto the page, but `$(document).ready();` is an insurance policy against this problem. You should only use one `$(document).ready();` in your js file. When called more than once, things will break.
+Loading your JavaScript at the bottom of the page will help you avoid trying to manipulate elements that aren't yet loaded onto the page, but `$(document).ready();` is an insurance policy against this problem. It's particularly useful for images or other content which may load after a js file at the end of the `<body>` or in the `<footer>`. 
+
+PRO TIP: It's best to only use one `$(document).ready();` in your js file as you get started. While technically you *can* use more than one, it is slightly slower (an optimization concern), more verbose (a style/readability concern) and arguably harder to debug (a developer experience concern). It also gets you into the habit of organizing your code into discrete functions.
 
 ```
 function someFunction(){
