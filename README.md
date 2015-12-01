@@ -2,16 +2,28 @@
 
 ## Introduction
 
-jQuery is a JavaScript library. Everything you can do in jQuery is written with regular (sometimes called "vanilla") JavaScript. Therefore, understanding the fundamentals of JavaScript as a language (its constructs and syntax, its orientation to particular programming concepts) is important in order to effectively use jQuery. You want to be careful not to use jQuery as a crutch to avoid engaging with the internals of JavaScript and instead use it as a tool to expedite your work. 
+jQuery is a JavaScript library. Everything you can do in jQuery is written with regular ([sometimes jokingly called "vanilla"](http://vanilla-js.com/)) JavaScript. Therefore, understanding the fundamentals of JavaScript as a language (its constructs and syntax, its orientation to particular programming concepts) is important in order to effectively use jQuery. You want to be careful not to use jQuery as a crutch to avoid engaging with the internals of JavaScript and instead use it as a tool to expedite your work.
 
 jQuery is particularly useful for manipulating the DOM and providing smooth user experiences. There is also another extension library called jQuery UI that provides some nice effects and methods for enhanced user experiences.
 
 ## Where to get it
 
-You can download jQuery from The jQuery Foundation's [website](http://jquery.com/download/). You can also use the [Google Hosted Libraries](https://developers.google.com/speed/libraries/?hl=en). The advantage of the former is that you are able to ensure the library is available. The disadvantage is that you are responsible for maintaining and updating that library in your codebase. The advantage of the latter is ease of use.
+You can download jQuery from The jQuery Foundation's [website](http://jquery.com/download/). You can also use the [Google Hosted Libraries](https://developers.google.com/speed/libraries/?hl=en). The advantage of the former is that you are able to ensure the library is available. The disadvantage is that you are responsible for maintaining and updating that library in your codebase. The advantage of the latter is ease of use. Eventually you may want to switch to using a gem to load jQuery, such as [jquery-rails](https://github.com/rails/jquery-rails).
 
-## `$(document).ready();`
-Loading your JavaScript at the bottom of the page will help you avoid trying to manipulate elements that aren't yet loaded onto the page, but `$(document).ready();` is an insurance policy against this problem. It's particularly useful for images or other content which may load after a js file at the end of the `<body>` or in the `<footer>`. 
+## Where to write your jQuery in your Sinatra app
+
+When you write custom JavaScript or jQuery for your app, you should write the code in separate files and then include a link to it in your layout file or in the views where you want it. You'll do this with a `<script>` tag. In my example here, I just include it in my `index.erb` file, since that's my only view:
+
+```
+    <script src="/js/taco.js"></script>
+  </body>
+</html>
+```
+
+When you have many external JavaScript files, you'll want to name and organize them for the view they involve. If you have some JS that affects a particular module or feature that is included on multiple pages, group it in a file that is logically named for that module or feature.
+
+## PRO-TIP ALERT: `$(document).ready();`
+Loading your JavaScript at the bottom of the page will help you avoid trying to manipulate elements that aren't yet loaded onto the page, but `$(document).ready();` is an insurance policy against this problem. It's particularly useful for images or other content which may load after a js file at the end of the `<body>` or in the `<footer>`.
 
 PRO TIP: It's best to only use one `$(document).ready();` in your js file as you get started. While technically you *can* use more than one, it is slightly slower (an optimization concern), more verbose (a style/readability concern) and arguably harder to debug (a developer experience concern). It also gets you into the habit of organizing your code into discrete functions.
 
@@ -37,9 +49,9 @@ jQuery lets us grab elements from the DOM in an easy shorthand and turn them int
 but more commonly you will see people get elements with jQuery like this:
 `$(".some-class-selector");`
 
-*Pro Tip*: The latter is the most common and is what I will use for all the examples in this clinic. However, be aware that occassionally you may use another library that also uses the `$` namespace and therefore run into conflicts, at which point you should refer to the jQuery [documentation on this topic](http://learn.jquery.com/using-jquery-core/avoid-conflicts-other-libraries/). It's highly unlikely you will need to handle this while you are working on your projects here, but I wanted to expose you to the concept.
+*Pro Tip*: The latter is the most common and is what I will use for all the examples in this clinic. However, be aware that occassionally you may use another library that also uses the `$` namespace and therefore run into conflicts, at which point you should refer to the jQuery [documentation on this topic](http://learn.jquery.com/using-jquery-core/avoid-conflicts-other-libraries/).
 
-jQuery lets you grab elements from the page using their CSS selectors (or elements), which makes it easy to use the Web Dev tools to find the best way to grab what you want.
+jQuery lets you grab elements from the page using their CSS selectors (or elements), which makes it easy to use the Web Dev tools to find the best way to grab what you want. The ones built into Chrome, Safari, and Firefox are all really nice, but you might also enjoy [this add-on](http://chrispederick.com/work/web-developer/).
 
 ### Getting an element by ID
 
@@ -72,7 +84,7 @@ You can assign any element you select with jQuery to a variable and then call jQ
 
 ## Manipulating selected elements
 
-To figure out what you can do once you grab the item or items you want from the page, you're going to want to refer to the [jQuery API documentation](http://api.jquery.com/). 
+To figure out what you can do once you grab the item or items you want from the page, you're going to want to refer to the [jQuery API documentation](http://api.jquery.com/).
 
 ### Hiding an element
 
@@ -116,6 +128,20 @@ $("#contact-box").append(dogeTaco);
 
 [`append()` documentation](http://api.jquery.com/append/)
 
+## DOM traversal
+
+jQuery has some really nice functions to help you traverse the DOM and manipulate elements in relation to others. For example, if I grab an element and want to select its siblings based on whether they have certain characteristics, I can do that:
+
+```
+$("li.fancy").nextAll("li").css("background-color", "MediumSeaGreen");
+```
+
+[`nextAll()`](http://api.jquery.com/nextAll/) accepts an argument to use as a filter. In this case, we only want sibling elements that are `<li>`'s. If we add a random `<p>` tag in there, it won't get selected.
+
+You can also grab siblings prior to the element you initially select with [`prevAll()`](http://api.jquery.com/prevAll/). Some other sibling methods, i.e. elements nested in the same element together, include [`siblings()`](http://api.jquery.com/siblings/), [`prev()`](http://api.jquery.com/prev/), and [`next()`](http://api.jquery.com/next/).
+
+There are also methods to grab the [`parent()`](http://api.jquery.com/parent/) or [`children()`](http://api.jquery.com/children/) of a given element, or to remove all elements that match a specific criteria (`not()`). Check out all the [DOM traversal](http://api.jquery.com/category/traversing/) methods in the docs.
+
 ## Event Handling
 Event handling is a process where we use JavaScript to "listen" for some interaction with an element, and then usually execute some corresponding action when that interaction takes place.
 
@@ -135,8 +161,10 @@ $("#doge-taco").click(function(){
 Or use `this` to perform some action on the object that was clicked:
 
 ```
-$("#doge-taco").click(function(){
+$("#burrito-gram").click(function(e){
+  e.preventDefault(); // because we're clicking on a link, we have to prevent it from doing link-y things, i.e. going to another page.
   $(this).hide();
+  $(this).parent().append('<input type="text"></input><input class="button success" type="submit">');
 });
 ```
 
@@ -145,7 +173,7 @@ Execute an anonymous function when the mouse is hovering over an element:
 
 ```
 $("#copyright").mouseover(function(){
-  $(this).append("<img src=\"/img/tacopony_logo.jpg\"/>");
+  $(this).append("<img src=\"/img/solar_flare.jpg\"/>");
 });
 ```
 
@@ -182,4 +210,3 @@ or
 ```
 "TypeError: Object [object Object] has no method 'setAttribute'"
 ```
-
